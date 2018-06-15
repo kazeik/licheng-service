@@ -26,5 +26,8 @@ return array(
 
 	// 调试下关闭缓存
 	'TMPL_CACHE_ON' => false,
- 	'TMPL_CACHE_ON' => false,
+	 'TMPL_CACHE_ON' => false,
+	 
+	 'URL_PARAMS_BIND'       =>  true ,// URL变量绑定到操作方法作为参数
+	 'URL_CASE_INSENSITIVE' =>true //url 不区别大小写
 );
