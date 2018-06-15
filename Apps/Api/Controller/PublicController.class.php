@@ -1,6 +1,7 @@
 <?php
  namespace Api\Controller;
  use Think\Controller\RestController;
+ use Api\Common;
 
 class PublicController extends BaseController{
 
@@ -10,16 +11,20 @@ class PublicController extends BaseController{
 
     public function getoilprice(){
         $today = date('Y-m-d');
-        echo $today;
         $date = I('date');
         $db = M('oil');
         $data = null;
         if(empty($date)){
-            $data =  $db->where("date='".$today."'")->select();
+            $data =  $db->where("date='".$today."'")->find();
         }else{
-           echo "1111";
+            $data =  $db->where("date='".$date."'")->find();
         }
-        $this->response($data,"json");
+        jsondata($data);
+    }
+
+    public function getoiltype(){
+        $db = M('oiltype');
+        jsondata($db->select());
     }
  }
  
