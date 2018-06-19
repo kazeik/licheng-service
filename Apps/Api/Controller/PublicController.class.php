@@ -26,5 +26,12 @@ class PublicController extends BaseController{
         $db = M('oiltype');
         jsondata($db->select());
     }
+
+
+    function loadcars(){
+        $data = file_get_contents(APP_PATH."/Data/cars");
+        $jsondata = json_decode($data);
+        jsondata($jsondata);
+    }
  }
  
