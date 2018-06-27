@@ -21,7 +21,7 @@ class RecordController extends PrivateController{
             'uid'=>$uid,  // uid
             'mileage'=>$allLc,   //总里程
             'oiltype'=>$oiltype,   //油类型
-            'oilmoney'=>$oilvalue,  //油价
+            'oilmoney'=>$cMoney,  //油价
             'allmoney'=>$aMoney,  //当次加油总价
             'message'=>$about,   //备注
             'oilmass'=>$oilvalue   //当前加油量
