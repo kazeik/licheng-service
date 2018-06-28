@@ -24,7 +24,7 @@ class UserController extends PrivateController{
 		$data['allmoney'] = $allMoney;
 		$data['alloilvalue'] = $allOilValue;
 		$data['alllicheng'] = $allLcValue;
-		$data['pingjun'] = $pjoil;
+		$data['pingjun'] = floor($pjoil*100)/100;
 		jsondata($data);
 	}
 }
