@@ -1,13 +1,13 @@
 <?php
 
-function jsondata($data,$message ='获取数据成功'){
+function jsondata($data,$message){
 	if(empty($data)){
 		$json['flag'] = '0';
-		$json['message'] = '暂无数据';
+		$json['message'] = $message;
 	}
 	else{
 		$json['flag'] = '1';
-		$json['message'] = $message;
+		$json['message'] = strlen($message)==0?"数据加载成功":$message;
 	}
 	
 	$json['data'] = $data;
