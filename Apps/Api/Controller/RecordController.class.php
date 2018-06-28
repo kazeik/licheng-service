@@ -2,9 +2,13 @@
 
 namespace Api\Controller;
 use Think\Controller\RestController;
-
+/**
+ * 记录控制器
+ */
 class RecordController extends PrivateController{
-
+    /**
+     * 记录一笔
+     */
     function addRecord(){
         $date = I("date");
         $allLc = I("alllicheng");
@@ -28,5 +32,13 @@ class RecordController extends PrivateController{
         );
         $flag = M('record')->data($data)->add();
         jsondata($flag,$flag?"数据添加成功":"数据添加失败");
+    }
+    /**
+     * 获取所有加油记录
+     */
+    public function getallrecordbyuser($uid){
+        $db = M('record');
+        $data = $db->where("uid='".$uid+"'")->select();
+        jsondata($data);
     }
 }

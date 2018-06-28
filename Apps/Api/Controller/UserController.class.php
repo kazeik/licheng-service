@@ -2,19 +2,20 @@
  namespace Api\Controller;
 
 use \Think\Controller\RestController;
-
+/**
+ * 用户控制器
+ */
 class UserController extends PrivateController{
-	
+	/**
+	 * 依据uid获取用户信息
+	 */
 	public function getuserinfo($uid =''){
 		jsondata( M('user')->where("uid='".$uid."'")->find());
 	}
-	
-	public function getAllRecoredByUid($uid =''){
-		jsondata(M("record") ->where("uid='".$uid."'")-> select());
-	}
-
-	public function gethomedata(){
-		$uid = I('uid');
+	/**
+	 * 获取用户下的平均数据
+	 */
+	public function gethomedata($uid){
 		$db = M('record');
 		$allMoney =  $db->where("uid='".$uid."'")->sum('allmoney'); 	//总金额
 		$allOilValue = $db->where("uid='".$uid."'")->sum('oilmass');//总油量

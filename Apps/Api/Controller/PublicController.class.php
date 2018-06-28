@@ -8,10 +8,11 @@ class PublicController extends BaseController{
     public function register(){
         
     }
-
-    public function getoilprice(){
+    /**
+     * 获取当日油价
+     */
+    public function getoilprice($date){
         $today = date('Y-m-d');
-        $date = I('date');
         $db = M('oil');
         $data = null;
         if(empty($date)){
@@ -21,13 +22,17 @@ class PublicController extends BaseController{
         }
         jsondata($data);
     }
-
+    /**
+     * 获取油器类型
+     */
     public function getoiltype(){
         $db = M('oiltype');
         jsondata($db->select());
     }
 
-
+    /**
+     * 加载车辆信息
+     */
     function loadcars(){
         $data = file_get_contents(APP_PATH."/Data/cars");
         $jsondata = json_decode($data);

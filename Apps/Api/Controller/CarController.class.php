@@ -3,7 +3,9 @@ namespace Api\Controller;
 use Think\Controller\RestController;
 
 class CarController extends PrivateController{
-	
+	/**
+	 * 添加用户选择的车辆
+	 */
 	function addCar($uid,$carbrand,$cartype){
 		$dataArr = array(
 		            'uid' => $uid,
