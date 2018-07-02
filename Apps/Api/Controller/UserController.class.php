@@ -26,6 +26,10 @@ class UserController extends PrivateController{
 		$data['alloilvalue'] = $allOilValue;
 		$data['alllicheng'] = $allLcValue;
 		$data['pingjun'] = round($pjoil,2);
+
+		$userDb = M('user');
+		$cardata  =$userDb->where("uid='".$uid."'")->find();
+		$data['car']= $cardata;
 		jsondata($data);
 	}
 }
