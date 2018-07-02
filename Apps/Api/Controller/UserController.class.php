@@ -22,9 +22,9 @@ class UserController extends PrivateController{
 		$allLc = $db->where("uid='".$uid."'")->field('mileage')->find();//总里程
 		$allLcValue = $allLc['mileage'];
 		$pjoil = $allOilValue / $allLcValue;
-		$data['allmoney'] = $allMoney;
-		$data['alloilvalue'] = $allOilValue;
-		$data['alllicheng'] = $allLcValue;
+		$data['allmoney'] = floatval($allMoney);
+		$data['alloilvalue'] = floatval($allOilValue);
+		$data['alllicheng'] = floatval($allLcValue);
 		$data['pingjun'] = round($pjoil,2);
 
 		$userDb = M('user');
