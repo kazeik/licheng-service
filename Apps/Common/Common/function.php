@@ -3,7 +3,7 @@
 function jsondata($data,$message){
 	if(empty($data)){
 		$json['flag'] = '0';
-		$json['message'] = $message;
+		$json['message'] = strlen($message)==0?"暂无数据":$message;
 	}
 	else{
 		$json['flag'] = '1';

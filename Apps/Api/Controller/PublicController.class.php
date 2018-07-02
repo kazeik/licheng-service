@@ -22,7 +22,7 @@ class PublicController extends BaseController{
 		else{
 			$data =  $db->where("date='".$date."'")->find();
 		}
-		jsondata($data,"获取数据成功");
+		jsondata($data);
 	}
 	
 	/**
