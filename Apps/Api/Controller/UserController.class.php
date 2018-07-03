@@ -19,12 +19,11 @@ class UserController extends PrivateController{
 		$db = M('record');
 		$allMoney =  $db->where("uid='".$uid."'")->sum('allmoney'); 	//总金额
 		$allOilValue = $db->where("uid='".$uid."'")->sum('oilmass');//总油量
-		$allLc = $db->where("uid='".$uid."'")->field('mileage')->find();//总里程
-		$allLcValue = $allLc['mileage'];
+		$allLc = $db->where("uid='".$uid."'")->max('mileage');//总里程
 		$pjoil = $allOilValue / $allLcValue;
 		$data['allmoney'] = floatval($allMoney);
 		$data['alloilvalue'] = floatval($allOilValue);
-		$data['alllicheng'] = floatval($allLcValue);
+		$data['alllicheng'] = $allLc;
 		$data['pingjun'] = round($pjoil,2);
 
 		$userDb = M('user');
