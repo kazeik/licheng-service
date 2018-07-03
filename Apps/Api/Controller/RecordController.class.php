@@ -38,7 +38,7 @@ class RecordController extends PrivateController{
      */
     public function getallrecordbyuser($uid){
         $db = M('record');
-        $data = $db->where("uid='".$uid."'")->select();
+        $data = $db->where("uid='".$uid."'")->order('date')->select();
         jsondata($data);
     }
 }
