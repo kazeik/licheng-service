@@ -6,7 +6,7 @@ use Api\Common;
 class PublicController extends BaseController{
 	
 	public function register(){
-		
+		echo "注册";
 	}
 	
 	/**
