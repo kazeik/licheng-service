@@ -6,13 +6,18 @@ class CarController extends PrivateController{
 	/**
 	 * 添加用户选择的车辆
 	 */
-	function addCar($uid,$carbrand,$cartype){
+	function addCar(){
+		$nickname = I('nickname');
+		$uid = I('uid');
+		$carbrand=I('carbrand');
+		$cartype=I('cartype');
 		$dataArr = array(
-		            'uid' => $uid,
-		            'carbrand' => $carbrand,
-		            'cartype' => $cartype
-		        );
-		$flag = M('user')->add($dataArr);
+			'nickname'=>$nickname,
+			'uid' => $uid,
+			'carbrand' => $carbrand,
+			'cartype' => $cartype
+		);
+		$flag = M('user')->data($dataArr)->add();
 		if($flag){
 			jsondata($flag,'数据添加成功');
 		}
