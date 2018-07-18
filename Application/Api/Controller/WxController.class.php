@@ -32,10 +32,11 @@ class WxController extends Controller{
            			break;
            		case Wechat::MSGTYPE_EVENT:
            			break;
-           		case Wechat::MSGTYPE_IMAGE:
+                   case Wechat::MSGTYPE_IMAGE:
+                   $weObj->text("宗亲您好，我已收到您发来的图片，我将会一一整理好，谢谢您")->reply();
            			break;
            		default:
-                   $weObj->text("help info")->reply();
+                   $weObj->text("宗亲您好，目前回复的消息为自动回复，请忽略，后续将逐步提供更方便快捷的功能。感谢您的关注")->reply();
            }
     }
 
